@@ -11,7 +11,7 @@ async function Page() {
 
 	if (userInfo?.onboarded) redirect("/");
 
-	const objID = JSON.parse(JSON.stringify(userInfo?._id));
+	const objID = userInfo && JSON.parse(JSON.stringify(userInfo._id));
 	const userData = {
 		id: user.id,
 		objectId: objID,
