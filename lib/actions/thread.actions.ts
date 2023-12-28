@@ -34,7 +34,7 @@ export async function createThread({
 	revalidatePath(path);
 }
 
-export async function fetchPosts(pageNumber: number, pageSize: number) {
+export async function fetchPosts(pageNumber = 1, pageSize = 20) {
 	connectToDB();
 
 	// Calculate the number of posts to skip
