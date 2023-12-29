@@ -17,6 +17,7 @@ export async function createCommunity(
 	createdById: string // Change the parameter name to reflect it's an id
 ) {
 	try {
+		console.log("Trying to create community within actions.ts");
 		connectToDB();
 
 		// Find the user with the provided unique id
