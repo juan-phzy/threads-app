@@ -83,6 +83,7 @@ export const POST = async (request: Request) => {
 			return NextResponse.json({ message: "User created" }, { status: 201 });
 		} catch (err) {
 			console.log(err);
+			console.log("Failed to create organization");
 			return NextResponse.json(
 				{ message: "Internal Server Error" },
 				{ status: 500 }
