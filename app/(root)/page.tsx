@@ -32,9 +32,14 @@ export default async function Home() {
 	*/
 	// 1.
 	const user = await currentUser();
-	if (!user) return null;
+	console.log(user);
+	if (!user) {
+		redirect("/sign-in");
+		return null;
+	}
 
 	// 2.
+	console.log("fetching userinfo");
 	const userInfo = await fetchUser(user.id);
 
 	// 3.
