@@ -24,44 +24,28 @@ export const options = {
 	plugins: {
 		title: {
 			display: true,
-			text: "Chart.js Bar Chart - Stacked",
+			text: "Bar Chart of Total Threads per User",
 		},
 	},
 	responsive: true,
+	maintainAspectRatio: false,
 	interaction: {
 		mode: "index" as const,
-		intersect: false,
-	},
-	scales: {
-		x: {
-			stacked: true,
-		},
-		y: {
-			stacked: true,
-		},
 	},
 };
 
-const mongoData = [
-	{ x: "alecia", y: 2 },
-	{ x: "Juan", y: 1 },
-	{ x: "Juan Pablo", y: 1 },
-];
-const blah = [1, 2, 3];
-
-export const data = {
-	labels: mongoData.map((data) => data.x),
-	datasets: [
-		{
-			label: "Dataset 1",
-			data: blah,
-			backgroundColor: "rgb(255, 99, 132)",
-			stack: "Stack 0",
-		},
-	],
-};
-
-const LineChart = () => {
+const LineChart = (passedData: any) => {
+	const chartInfo = passedData.mongoData;
+	const data = {
+		labels: chartInfo.map((data: any) => data.x),
+		datasets: [
+			{
+				label: "Dataset 1",
+				data: chartInfo.map((data: any) => data.y),
+				backgroundColor: "rgb(255, 99, 132)",
+			},
+		],
+	};
 	return <Bar options={options} data={data} />;
 };
 
